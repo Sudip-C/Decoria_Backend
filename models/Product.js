@@ -1,4 +1,4 @@
-// models/Product.js
+
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
@@ -12,4 +12,4 @@ const productSchema = new mongoose.Schema({
   stock: { type: Number, default: 0 },
 });
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('DProduct', productSchema);

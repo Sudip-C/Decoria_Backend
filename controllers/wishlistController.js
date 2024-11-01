@@ -1,4 +1,7 @@
 // controllers/wishlistController.js
+const User = require('../models/User');
+const Product = require('../models/Product');
+
 exports.addToWishlist = async (req, res) => {
     try {
       const user = await User.findById(req.user._id);
