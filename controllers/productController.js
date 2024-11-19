@@ -24,3 +24,36 @@ exports.getAllProducts = async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
+
+// controllers/productController.js
+const Product = require('../models/Product');
+
+// Controller to handle filtering, sorting, and searching
+exports.getFilteredProducts = async (req, res) => {
+  const { category, sort, search } = req.query;
+
+  try {
+    // Create a query object for filtering
+    const query = {};
+    if (category) {
+      query.category = category; // Filter by category
+    }
+    if (search) {
+      query.title = { $regex: search, $options: 'i' }; // Case-insensitive search in title
+    }
+
+    // Execute the query with sorting
+    let products = Product.find(query);
+
+    if (sort) {
+      const sortOption = sort === 'asc' ? { price: 1 } : { price: -1 }; // Sort by price
+      products = products.sort(sortOption);
+    }
+
+    const result = await products; // Execute the query
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
