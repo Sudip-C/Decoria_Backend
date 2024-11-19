@@ -44,7 +44,7 @@ exports.getFilteredProducts = async (req, res) => {
     let products = Product.find(query);
 
     if (sort) {
-      const sortOption = sort === 'asc' ? { price: 1 } : { price: -1 }; // Sort by price
+      const sortOption = sort === 'asc' ? { Price: 1 } : { Price: -1 }; // Sort by price
       products = products.sort(sortOption);
     }
 
