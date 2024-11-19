@@ -25,8 +25,6 @@ exports.getAllProducts = async (req, res) => {
     }
   };
 
-// controllers/productController.js
-const Product = require('../models/Product');
 
 // Controller to handle filtering, sorting, and searching
 exports.getFilteredProducts = async (req, res) => {
