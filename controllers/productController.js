@@ -37,7 +37,7 @@ exports.getFilteredProducts = async (req, res) => {
       query.category = category; // Filter by category
     }
     if (search) {
-      query.title = { $regex: search, $options: 'i' }; // Case-insensitive search in title
+      query.Title = { $regex: search, $options: 'i' }; // Case-insensitive search in title
     }
 
     // Execute the query with sorting
