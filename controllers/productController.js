@@ -34,7 +34,7 @@ exports.getFilteredProducts = async (req, res) => {
     // Create a query object for filtering
     const query = {};
     if (category) {
-      query.category = category; // Filter by category
+      query.Category = category; // Filter by category
     }
     if (search) {
       query.Title = { $regex: search, $options: 'i' }; // Case-insensitive search in title
