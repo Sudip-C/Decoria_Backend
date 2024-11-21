@@ -1,5 +1,6 @@
 // controllers/productController.js
 const Product = require('../models/Product');
+const mongoose = require('mongoose');
 
 exports.addProduct = async (req, res) => {
   const products = req.body;
